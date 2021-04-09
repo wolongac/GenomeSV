@@ -1,5 +1,12 @@
 #Syri out Parse 
-####################Input file format###########################
+
+#In Details :
+#1. Insertion(Trans),Insertion(copygain) and Insertion(Notal) infer the corresponding insertion position  on REF genome using the alignment information.
+#3. For the joining insertion-type SVs,for example: Insertion, Insertion(copygain), Insertion(Notal), and Insertion(Trans), merged into one larger SVs. For TRANS/INVTR, the corresponding Deletion is converted to Deletions.
+
+
+
+#####################Input file format###########################
 #1	chromosome ID in genome A	string
 #2	genome A start position (1-based, includes start position)	int
 #3	genome A end position (1-based, includes end position)	int
@@ -32,8 +39,6 @@ my $syri_out=shift;
 my $out=shift;
 
 open(IN,"$syri_out");
-#open(OUT1,">$out.structual_variation.bed");
-#open(OUT2,">$out.sequence_variation.bed");
 open(OUT,">$out.SV.bed");
 
 my %hash_ref;				#hash_ref{$chr}{$start}{$end};
@@ -52,6 +57,8 @@ while(<IN>){
 	#####################################
 	
 	#Parent exists and not syntenic, remove out
+	#keep syntenic information for the follow analysis
+	
 	next if ($line[9] !~ /SYN/ and $line[9] ne "-");
 	
 	if (($line[10] eq "DUP" or $line[10] eq "INVDP") and $line[11] eq "copyloss"){

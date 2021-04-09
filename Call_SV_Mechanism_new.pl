@@ -8,7 +8,7 @@
 #!/usr/bin/perl -w
 use strict;
 
-#Call By SV Cluster;
+#Call Machanism By SV Cluster;
 
 my $sv=shift;
 my $cluster_ref=shift;

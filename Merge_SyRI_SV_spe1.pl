@@ -1,5 +1,5 @@
 #########################################################################
-#      File Name: GetInsertionSeq.pl
+#      File Name: Merge_SyRI_SV_spe_without_Individual_ref_position.pl
 #    > Author: hwlu
 #    > Mail: hongweilu@genetics.ac.cn 
 #    Created Time: Mon 23 Mar 2020 07:50:33 PM CST
