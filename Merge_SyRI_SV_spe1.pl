@@ -90,7 +90,8 @@ foreach my $type (keys %hash_SV_array){
 	    for(my $j=$i+1;$j<@tmp_chr;$j++){
 		my ($start_2,$end_2,$spe_2)=split /\t/,$tmp_chr[$j];
 		next if (exists $hash_merged_result{$type}{$chr}{$start_2}{$end_2}{$spe_2});
-		last if ($start_2>$end_1);
+		last if ($start_2 - $end_1 > $ins_distance);
+		last if ($start_2>$end_1 and ($type ne "INS" and $type ne "Insertion"));
 		if($type eq "INS" or $type eq "Insertion"){     #ref overlap and query RO >0.5
 			my $ins_1=$hash_SV{$type}{$chr}{$start_1}{$end_1}{$spe_1};
 			my $ins_2=$hash_SV{$type}{$chr}{$start_2}{$end_2}{$spe_2};
