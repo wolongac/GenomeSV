@@ -1,8 +1,6 @@
 # Rice SV Analysis
 
 
-#wd = "/public-dss/Project/Project_hwlu/hwlu/Core_set/SV/SV_pipline"
-
 
 ## 1. data required:
 

@@ -9,9 +9,9 @@
 use strict;
 
 my $sv=shift;
-my @trf=`ls /public-dss/Project/Project_hwlu/hwlu/Core_set/TRF/result/*.trf`;
+my @trf=`ls *.trf`;
 #my @TE_gff=`ls /public-dss/Project/Project_hwlu/hwlu/Core_set/genomes/TE_repeat/*.genome.out.gff`;
-my @TE_gff=`ls /public-dss/Project/Project_hwlu/hwlu/Core_set/Repeat/RepeatMasker/RepeatMasker_result_raw/*.genome.out.gff`;
+my @TE_gff=`ls *.genome.out.gff`;
 
 
 

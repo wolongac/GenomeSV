@@ -12,8 +12,8 @@ my $sv=shift;
 my $spe_input=shift;
 my $distance=1;
 my $num=2;
-my @trf=`ls /public-dss/Project/Project_hwlu/hwlu/Core_set/TRF/result/*.trf`;
-my @TE_gff=`ls /public-dss/Project/Project_hwlu/hwlu/Core_set/genomes/TE_repeat/*.genome.out.gff`;
+my @trf=`ls *.trf`;
+my @TE_gff=`ls *.genome.out.gff`;
 
 my %hash_trf;
 my %hash_TE;   #$hash_TE{$spe}{$chr}{$start}=$end;
