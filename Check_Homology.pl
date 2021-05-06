@@ -11,10 +11,9 @@ use Bio::Tools::Run::Alignment::Blat;
 use Bio::Seq;
 
 my $sv=shift;
-my @genomes=`ls /public-dss/Project/Project_hwlu/hwlu/Core_set/genomes/*.genome`;
+my @genomes=`ls *.genome`;
 my $spe = $sv;
 $spe =~ s/\..*//g;
-$spe =~ s/v2//g;
 
 my %hash_genome;
 foreach my $genome (@genomes){
