@@ -58,7 +58,7 @@
 ## 3. merge results for all individuals:
 
  ```Bash
- for i in $(ls *.syri.out.SV.bed.mergeDel.CPV2InDel);do awk '{len1=0;if($7=="Insertion"){len1=$6-$5+1}else{len1=$3-$2+1};if(len1>=50 || len1<=-50){print}}' $i >$i.50bp;done
+ for i in $(ls *.syri.out.SV.bed.mergeDel.CPV2InDel);do awk '{len1=0;if($7=="Insertion"){len1=$6-$5+1}else{len1=$3-$2+1};if(len1>=50 || len1<=-50){print}}' $i >$i.50.bp;done
  
  perl Merge_SyRI_SV_spe.pl 
  ```
