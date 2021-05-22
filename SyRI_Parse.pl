@@ -36,10 +36,9 @@
 ###################################################################
 
 my $syri_out=shift;
-my $out=shift;
 
 open(IN,"$syri_out");
-open(OUT,">$out.SV.bed");
+open(OUT,">$syri_out.SV.bed");
 
 my %hash_ref;				#hash_ref{$chr}{$start}{$end};
 my %hash_query;				#$hash_query{$chr}{$start}{$end};
