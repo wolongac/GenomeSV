@@ -92,7 +92,7 @@ foreach my $chr (keys %{$hash{"DEL"}}){
 }
 
 my $syri_out=$bed;
-open(ERR,"$syri_out.CPVerr");
+open(ERR,">$syri_out.CPVerr");
 $syri_out  =~ s/\.SV\.bed//g;
 print "$syri_out\n";
 my %hash_SYNAL;
