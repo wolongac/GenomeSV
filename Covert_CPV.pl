@@ -92,6 +92,7 @@ foreach my $chr (keys %{$hash{"DEL"}}){
 }
 
 my $syri_out=$bed;
+open(ERR,"$syri_out.CPVerr");
 $syri_out  =~ s/\.SV\.bed//g;
 print "$syri_out\n";
 my %hash_SYNAL;
@@ -149,7 +150,7 @@ foreach my $chr (keys %hash_CPV) {
 		}
 	    }
 	    if (@synal_1 ==0 or @synal_2==0 or $stat==1){
-		    print "$chr\t$start\t$end\n";
+		    print ERR  "Can not parse CPV : $chr\t$start\t$end\n";
 		next;
 	    }
 	    if($target[2]-$target[1]>$end-$start){    #more 
@@ -179,3 +180,4 @@ foreach my $chr (keys %hash_CPV) {
 }
 close OUT;
 close IN;
+close ERR;
