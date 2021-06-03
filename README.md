@@ -51,6 +51,10 @@
  ```Bash
  input = $spe.syri.out
  perl SyRI_Parse.pl $input
+ 
+ #For analysis based on chromosome-level assemblies, the no-translation SVs that occured on non homologous chromosome should be deleted by command:
+  awk '{if($1==$4 || ($4 == "-")){print}}'  $input.SV.bed >$input.SV.bed2
+  mv $input.SV.bed2 $input.SV.bed
  perl Covert_CPV.pl $input.SV.bed
  ```
 
