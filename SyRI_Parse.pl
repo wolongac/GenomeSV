@@ -129,6 +129,16 @@ foreach my $chr (keys %hash_query){
 	}
 	foreach my $start  (sort {$a <=> $b} keys %{$hash_query{$chr}}){
 		foreach my $end (sort {$b <=> $a} keys %{$hash_query{$chr}{$start}}){
+			if($chr eq "Chr05" and $start == 15643 and $end == 74286){
+			    print "$hash_query{$chr}{$start}{$end}\t$chr_now_ref\t$end_now_ref\t$start_now_ref\t$end_flag\n";
+
+			}
+			if($chr eq "Chr05" and $start < 283390){
+			    print "Test:$hash_query{$chr}{$start}{$end}\t$chr_now_ref\t$end_now_ref\t$start_now_ref\t$end_flag\n";
+			}
+			if($chr eq "Chr05" and $start == 61255 and $end ==262406){
+			    print "$hash_query{$chr}{$start}{$end}\t$chr_now_ref\t$end_now_ref\t$start_now_ref\t$end_flag\n";
+			}
 			if($hash_query{$chr}{$start}{$end} =~ /Insertion/){
 				#extend or start a new insertion
 				my $tmp = (split /\|/,$hash_query{$chr}{$start}{$end})[-1];
@@ -155,10 +165,11 @@ foreach my $chr (keys %hash_query){
 					if ($start_now_query==1){
 						#attach to the followd region
 						my $ID=join "|",@ID;
-						if(@ID==1 and $ID =~/TR/){
-						    next;
+						if(@ID==1 and $ID =~/TR/){    #only one INS_type SV and it's a TRANS, then keep the raw SV Type : TRANS
+							#next;
+						}else{
+						print OUT "$chr_tmp\t$start_tmp\t$start_tmp\t$chr\t$start_now_query\t$end_now_query\tInsertion\tCombine\t$ID\t-\n";   #or print OUT the merged SV and mark the related SV to be used to merge
 						}
-						print OUT "$chr_tmp\t$start_tmp\t$start_tmp\t$chr\t$start_now_query\t$end_now_query\tInsertion\tCombine\t$ID\t-\n";
 						$end_now_ref=$end_tmp;
 						$chr_now_ref=$chr_tmp;
 						if(@ID>1){
@@ -170,9 +181,10 @@ foreach my $chr (keys %hash_query){
 						#attach to the previous region
 						my $ID=join "|",@ID;
 						if(@ID==1 and $ID =~ /TR/){
-						    next;
-						}
+							#next;
+						}else{
 						print OUT "$chr_now_ref\t$end_now_ref\t$end_now_ref\t$chr\t$start_now_query\t$end_now_query\tInsertion\tCombine\t$ID\t-\n";
+						}
 						$end_now_ref=$end_tmp;
 						$chr_now_ref=$chr_tmp;
 						if(@ID>1){
