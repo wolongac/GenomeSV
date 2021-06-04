@@ -129,16 +129,6 @@ foreach my $chr (keys %hash_query){
 	}
 	foreach my $start  (sort {$a <=> $b} keys %{$hash_query{$chr}}){
 		foreach my $end (sort {$b <=> $a} keys %{$hash_query{$chr}{$start}}){
-			if($chr eq "Chr05" and $start == 15643 and $end == 74286){
-			    print "$hash_query{$chr}{$start}{$end}\t$chr_now_ref\t$end_now_ref\t$start_now_ref\t$end_flag\n";
-
-			}
-			if($chr eq "Chr05" and $start < 283390){
-			    print "Test:$hash_query{$chr}{$start}{$end}\t$chr_now_ref\t$end_now_ref\t$start_now_ref\t$end_flag\n";
-			}
-			if($chr eq "Chr05" and $start == 61255 and $end ==262406){
-			    print "$hash_query{$chr}{$start}{$end}\t$chr_now_ref\t$end_now_ref\t$start_now_ref\t$end_flag\n";
-			}
 			if($hash_query{$chr}{$start}{$end} =~ /Insertion/){
 				#extend or start a new insertion
 				my $tmp = (split /\|/,$hash_query{$chr}{$start}{$end})[-1];
