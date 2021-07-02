@@ -67,7 +67,7 @@ foreach my $chr (keys %{$hash{"DEL"}}){
 	    foreach my $end (sort {$a <=> $b} keys %{$hash{"DEL"}{$chr}{$start}}){
 		    if($start > $end_now){
 			#End and output:
-			if($start_now==0){
+			if($end_now==0){
 			    $start_now = $start;
 			    $end_now = $end;
 			    next;
